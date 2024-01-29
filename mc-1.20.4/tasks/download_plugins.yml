@@ -1,0 +1,14 @@
+---
+- name: Copy all plugins from files
+  copy:
+    src: "{{ item }}"
+    dest: "{{ minecraft_server_directory }}/plugins/"
+  with_fileglob:
+    - "plugins/*"
+
+- name: Download Minecraft Mods
+  get_url:
+    url: "{{ item }}"
+    dest: "{{ minecraft_server_directory }}/plugins/"
+  loop: "{{ minecraft_plugin_urls }}"
+  when: minecraft_plugin_urls is defined and minecraft_plugin_urls | length > 0

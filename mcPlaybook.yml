@@ -1,0 +1,6 @@
+---
+- name: Setup Minecraft Server
+  hosts: vms
+  become: yes
+  roles:
+    - mc-1.20.4

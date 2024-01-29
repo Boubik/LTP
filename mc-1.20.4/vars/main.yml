@@ -1,0 +1,35 @@
+---
+# vars file for mc-1.20.4
+
+# java
+java_version_debian: "openjdk-17-jdk"
+java_executable_path: "/usr/lib/jvm/java-17-openjdk-amd64/bin/java"
+
+# minecraft
+minecraft_eula: true
+minecraft_user: "minecraft"
+minecraft_dir: "vanila-1.20.4"
+minecraft_server_jar_url: "https://ci.pufferfish.host/job/Pufferfish-1.20/44/artifact/build/libs/pufferfish-paperclip-1.20.4-R0.1-SNAPSHOT-reobf.jar"
+minecraft_server_jar: "pufferfish-paperclip-1.20.4-R0.1-SNAPSHOT-reobf.jar"
+minecraft_server_directory: "/home/{{ minecraft_user }}/{{ minecraft_dir }}"
+minecraft_memory: "1G"
+# plugins (also check files/plugins)
+#minecraft_plugin_urls:
+#  - "http://example.com/plugin/plugin1.jar"
+#  - "http://example.com/plugin/plugin2.jar"
+#  - "http://example.com/plugin/plugin3.jar"
+
+
+# server.properties
+minecraft_gamemode: survival
+minecraft_motd: "A Minecraft Server"
+minecraft_query_port: 25565
+minecraft_pvp: false
+minecraft_max_players: 20
+minecraft_online_mode: false
+minecraft_view_distance: 10
+minecraft_server_ip: ""
+minecraft_server_port: 25565
+minecraft_enable_rcon: false
+minecraft_rcon_port: 25575
+minecraft_rcon_password: ""

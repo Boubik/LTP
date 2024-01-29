@@ -1,0 +1,36 @@
+---
+- name: Create a directory
+  file:
+    path: "{{ minecraft_server_directory }}/plugins"
+    state: directory
+    mode: '0755'
+  become: yes
+
+- name: Create ServerStart.sh script
+  template:
+    src: ServerStart.sh.j2
+    dest: "{{ minecraft_server_directory }}/ServerStart.sh"
+    owner: "{{ minecraft_user }}"
+    group: "{{ minecraft_user }}"
+    mode: '0755'
+  become: true
+
+- name: Accept Minecraft EULA
+  copy:
+    dest: "{{ minecraft_server_directory }}/eula.txt"
+    content: |
+      # By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).
+      eula={{ minecraft_eula }}
+    owner: "{{ minecraft_user }}"
+    group: "{{ minecraft_user }}"
+    mode: '0644'
+  become: true
+
+- name: Create server.properties file
+  template:
+    src: server.properties.j2
+    dest: "{{ minecraft_server_directory }}/server.properties"
+    owner: "{{ minecraft_user }}"
+    group: "{{ minecraft_user }}"
+    mode: '0644'
+  become: true

@@ -1,0 +1,13 @@
+---
+- name: Reload systemd
+  systemd:
+    daemon_reload: yes
+  become: yes
+
+- name: Enable Minecraft service
+  systemd:
+    name: minecraft@{{ minecraft_dir }}
+    enabled: yes
+    state: started
+  become: yes
+

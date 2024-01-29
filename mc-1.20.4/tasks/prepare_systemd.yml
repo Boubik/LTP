@@ -1,0 +1,12 @@
+---
+- name: Install Screen on Debian/Ubuntu
+  apt:
+    name: "screen"
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Create Minecraft systemd service file
+  template:
+    src: minecraft@.service.j2
+    dest: /etc/systemd/system/minecraft@.service
+  become: yes

@@ -1,0 +1,21 @@
+---
+- name: Install Java
+  include_tasks: install_java.yml
+
+- name: Create Minecraft User
+  include_tasks: create_user.yml
+
+- name: Prepare Minecraft folder and settings
+  include_tasks: prepare_mc.yml
+
+- name: Download Minecraft Server JAR
+  include_tasks: download_jar.yml
+
+- name: Download All Minecraft plugins
+  include_tasks: download_plugins.yml
+
+- name: Create Minecraft systemd service file
+  include_tasks: prepare_systemd.yml
+
+- name: Start Minecraft
+  include_tasks: start_mc.yml

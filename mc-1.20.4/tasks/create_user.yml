@@ -1,0 +1,6 @@
+---
+- name: Create Minecraft User
+  user:
+    name: "{{ minecraft_user }}"
+    system: no
+    create_home: yes
